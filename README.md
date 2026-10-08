@@ -18,13 +18,4 @@ def scan_files(root: Path, extensions: list[str] | None = None) -> list[dict]:
             "ext": p.suffix.lower(),
         })
     return results
-    def cmd_scan(args):
-    files = scan_files(Path(args.dir), args.ext)
-    if not files:
-        print("未找到匹配文件。")
-        return
-    print(f"{'文件名':<40} {'大小':>10}  {'修改时间':<20}")
-    print("-" * 75)
-    for f in files:
-        print(f"{f['name']:<40} {f['size']/1024:>8.1f}KB  {f['mtime']:%Y-%m-%d %H:%M:%S}")
-    print(f"\n共 {len(files)} 个文件。")
+    
